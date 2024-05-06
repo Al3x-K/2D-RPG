@@ -7,6 +7,12 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public bool isMoving;
     public Vector2 input;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -14,6 +20,10 @@ public class PlayerController : MonoBehaviour
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
+
+            animator.SetFloat("moveX", input.x);
+            animator.SetFloat("moveY", input.y);
+            animator.SetBool("isMoving", isMoving);
 
             if (input != Vector2.zero)
             {
