@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
       
         if(collider != null)
         {
-            //collider.GetComponent<Interactable>()?.Interact();
+            collider.GetComponent<Interactable>()?.Interact();
         }
     }
 
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isWalkable(Vector3 targetPos)
     {
-       if(Physics2D.OverlapCircle(targetPos, 0.1f, solidObjectsLayer | interactableLayer) != null)
+       if(Physics2D.OverlapCircle(targetPos, 0.05f, solidObjectsLayer | interactableLayer) != null)
         {
             return false;
         }
