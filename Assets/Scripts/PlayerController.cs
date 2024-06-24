@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public bool isMoving;
     public Vector2 input;
+   
     private Animator animator;
 
     public LayerMask solidObjectsLayer;
@@ -24,11 +25,10 @@ public class PlayerController : MonoBehaviour
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
-            animator.SetFloat("moveX", input.x);
-            animator.SetFloat("moveY", input.y);
-
             if (input != Vector2.zero)
             {
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
                 var targetPos = transform.position;
                 targetPos.x += input.x;
                 targetPos.y += input.y;
